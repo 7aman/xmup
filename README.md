@@ -12,7 +12,7 @@ Please use downloaded firmwares carefully. If you choose wrong firmware, device 
 
 ```shell
 # Linux and Mac
-pip3 install xmup
+pip3 install --user -U xmup
 #  windows
 pip install xmup
 ```
