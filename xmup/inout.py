@@ -4,13 +4,14 @@ from pathlib import Path
 
 OS = platform.system()
 
-def open_folder(path):
-    if OS == "Windows":
-        subprocess.Popen(["explorer", str(path)])
-    elif OS == "Darwin":
-        subprocess.Popen(["open", path])
-    else:
-        subprocess.Popen(["xdg-open", path])
+def open_folder(path, open_after):
+    if open_after:
+        if OS == "Windows":
+            subprocess.Popen(["explorer", str(path)])
+        elif OS == "Darwin":
+            subprocess.Popen(["open", path])
+        else:
+            subprocess.Popen(["xdg-open", path])
 
 
 def get_path():
@@ -66,7 +67,7 @@ def select(results):
         return []
     else:
         print('[Select]')
-        for i, res in enumerate(results):
+        for i, res in enumerate(results, 1):
             print(f"  {i} - {res['DevID']} - ({res['FileName']})")
         print(' '*2 + '...................')
         selected = get_user_choice(results)
