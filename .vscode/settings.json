@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.egg-info": true,
+    "**/dist": true,
+    "**/build": true
+  },
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
+}
