@@ -55,7 +55,7 @@ def download(devid, path, info):
         print('Downloading...')
         file = path.joinpath(req["FileName"])
         if file.exists():
-            print("file {file} exists on Download folder. skipping...")
+            print(f"file {file.absolute()} exists on Download folder. skipping...")
         else:
             response = requests.head(url, json=req, headers=headers)
             if response.status_code == 200:
