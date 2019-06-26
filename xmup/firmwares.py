@@ -12,6 +12,7 @@ def get_all():
         result = json.loads(response.text)
     except requests.exceptions.ConnectionError:
         print("Connection Error. Try again later.")
+        input('\nPress any key to exit ....')
         exit()
     return result["versions"]
 
@@ -39,6 +40,7 @@ def check(devid):
         return result
     except requests.exceptions.ConnectionError:
         print("Connection Error. Try again later.")
+        input('\nPress any key to exit ....')
         exit()
 
 
@@ -70,4 +72,5 @@ def download(devid, path, info):
 
     except requests.exceptions.ConnectionError:
         print("Connection Error. Try again later.")
+        input('\nPress any key to exit ....')
         exit()

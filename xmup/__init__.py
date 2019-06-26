@@ -19,7 +19,8 @@ def main():
         inout.open_folder(path, open_after)
     else:
         print('nothing to display.')
-        exit()
+    input('\nPress any key to exit ....')
+    exit()
 
 if __name__ == "__main__":
     main()

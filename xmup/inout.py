@@ -1,6 +1,8 @@
 import platform
 import subprocess
 from pathlib import Path
+from xmup import version
+
 
 OS = platform.system()
 
@@ -21,8 +23,10 @@ def get_path():
 
 
 def ask_devid():
-    banner = ["*"*55,]
-    banner.append("System version is like this:\n")
+    banner = [f"\nxmup version {version.__version__}"]
+    banner.append('more info: https://github.com/7aman/xmup\n')
+    banner.append(f'{"*"*55}\n')
+    banner.append("Notice:\n\nSystem version is like this:\n")
     banner.append("    V4.02.R11.00000142.11001.131600.00000\n")
     banner.append("The important section of this string is this part:\n")
     banner.append("    --.--.---.00000142.-----.------.-----\n")
@@ -68,7 +72,7 @@ def select(results):
     else:
         print('[Select]')
         for i, res in enumerate(results, 1):
-            print(f"  {i} - {res['DevID']} - ({res['FileName']})")
+            print(f"  {i} - {res['DevID']} => {res['FileName']}")
         print(' '*2 + '...................')
         selected = get_user_choice(results)
     return [sel -1 for sel in selected]
